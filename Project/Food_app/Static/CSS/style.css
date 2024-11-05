@@ -1,0 +1,99 @@
+
+.londrina-sketch-regular {
+    font-family: "Londrina Sketch", sans-serif;
+    font-weight: 590;
+    font-style: normal;
+    font-size: 50px;
+  }
+  
+.protest-strike-regular {
+    font-family: "Protest Strike", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.caveat-regular {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+  }
+
+
+.dancing-script-regular {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+}
+  
+
+.carousel-inner img {
+    width: 10px; /* Fixed width */
+    height: 300px; /* Fixed height */
+    object-fit: fill; /* Force the image to stretch to fit the container */
+    margin: 0 auto;
+    overflow: hidden;
+    object-position: top;
+}
+
+.card-img-top {
+    width: 100%; /* Ensure the image takes full width of the card */
+    height: 200px; /* Set a fixed height */
+    object-fit: cover; /* Maintain aspect ratio while covering the area */
+}
+
+.card-text {
+    display: -webkit-box; /* Enables the use of line clamping */
+    -webkit-box-orient: vertical; /* Orient the box vertically */
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    overflow: hidden; /* Hide any overflow text */
+    text-overflow: ellipsis; /* Show ellipsis for overflow text */
+    max-height: 4.5em; /* Set max height based on line height (3 lines + some space) */
+    line-height: 1.5em; /* Set line height for calculations */
+}
+
+.old_price {
+  font-weight: bold;
+  color: red;
+  font-size:medium;
+}
+
+.new_price {
+  font-weight: bold;
+  color: rgb(7, 155, 7);
+  font-size:medium;
+}
+
+.old_priced {
+  font-weight:lighter;
+  color: red;
+  font-size:medium;
+}
+
+.new_priced {
+  font-weight: lighter;
+  color: rgb(7, 155, 7);
+  font-size:medium;
+}
+
+.hidden {
+  font-weight:normal;
+  color: rgb(7, 22, 155);
+  font-size:x-large;
+}
+
+.light-bold {
+  font-weight:400; /* Adjust the weight for a lighter bold */
+  font-size: 1.2em; /* Optional: Increase font size for emphasis */
+}
+
+/* More specific example */
+.container a {
+  text-decoration: none; /* Removes underline from links inside .container */
+}
+
+
+
