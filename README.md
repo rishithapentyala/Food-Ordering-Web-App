@@ -1,5 +1,7 @@
 # Django-Food-Ordering-Web-App
 
+**Linkedin URL:** https://www.linkedin.com/in/saravanan-b-241468269/details/projects/
+
 **Key Skills:** Python, Django Framework, Front-end Technologies, Database Management, Authentication & Authorization, CRUD Operations.
 
 **Key Competencies:**
