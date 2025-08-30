@@ -1,6 +1,7 @@
+<<<<<<< HEAD
 # Django-Food-Ordering-Web-App
 
-**Linkedin URL:** https://www.linkedin.com/in/saravanan-b-241468269/details/projects/
+**Linkedin URL:** https://www.linkedin.com/in/rishitha-pentyala-2616a9286/
 
 **Key Skills:** Python, Django Framework, Front-end Technologies, Database Management, Authentication & Authorization, CRUD Operations.
 
