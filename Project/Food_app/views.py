@@ -20,14 +20,16 @@ def login_page(request):
     if request.method == "POST":
         name = request.POST.get('username')
         pwd = request.POST.get('password')
-        user = authenticate(request,username=name,password=pwd)
+        user = authenticate(request, username=name, password=pwd)
         if user is not None:
-            login(request,user)
-            messages.success(request,'Logged in successfully.')
+            login(request, user)
+            messages.success(request, 'Logged in successfully.')
+            return redirect('Home')  # ✅ Add this line to redirect after login
         else:
-            messages.error(request,'Invalid username or password.')
+            messages.error(request, 'Invalid username or password.')
             return redirect('Login') 
-    return render(request,'login.html')
+    return render(request, 'login.html')
+
 
 def logout_page(request):
     if request.user.is_authenticated:

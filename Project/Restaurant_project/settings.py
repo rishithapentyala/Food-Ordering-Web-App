@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'foods'
+    'Food_app'
 ]
 
 MIDDLEWARE = [
@@ -52,12 +55,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'restaurant.urls'
+ROOT_URLCONF = 'Restaurant_project.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'Food_app', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'restaurant.wsgi.application'
+WSGI_APPLICATION = 'Restaurant_project.wsgi.application'
 
 
 # Database
@@ -78,12 +81,12 @@ WSGI_APPLICATION = 'restaurant.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE':  'django.db.backends.postgresql',
         'NAME': 'restaurant', # database name
-        'USER' : 'root',
-        'PASSWORD' : 'Saravanan123',
+        'USER' : 'postgres',
+        'PASSWORD' : '0704',
         'HOST': 'localhost',
-        'PORT': '3307'
+        'PORT': '5432'
     }
 }
 
@@ -124,13 +127,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'  
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR , 'foods/static')
+    os.path.join(BASE_DIR , 'Food_app/static')
 ]
-MEDIA_ROOT = BASE_DIR/'static'
-MEDIA_URL = '/images/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

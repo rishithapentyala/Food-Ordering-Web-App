@@ -1,6 +1,5 @@
 {% extends "layouts/main.html" %}
-
-
+{% load static %}
 {% block content %}
     {% include "includes/message.html" %}
     <section class="bg-light py-4 my-5" style="min-height:500px;">
@@ -25,7 +24,11 @@
                             <tr>
                                 <td>
                                     <a href="{% url 'Product_detail' item.product.category item.product.name %}">
-                                    <img src="{{ item.product.item_image }}" height="200px" width="200px" class="img-thumbnail" alt="{{ item.product.name }}">
+                                        {% if item.product.item_image %}
+                                            <img src="{{ item.product.item_image.url }}" height="200px" width="200px" class="img-thumbnail" alt="{{ item.product.name }}">
+                                        {% else %}
+                                            <img src="{% static 'images/no-image.png' %}" height="200px" width="200px" class="img-thumbnail" alt="No image">
+                                        {% endif %}
                                     </a>
                                 </td>
                                 <td>
@@ -33,22 +36,16 @@
                                     <p class="text-muted">{{ item.product.item_description|truncatewords:10 }}</p>
                                 </td>
                                 <td>
-                                    <h6>₹{{ item.product.offer_price | stringformat:'d' }}</h6>
+                                    <h6>₹{{ item.product.offer_price|stringformat:'d' }}</h6>
                                 </td>
-                                {% if item.product_qty == 1 %}
-                                    <td>
-                                        <h5>{{ item.product_qty }} item</h5>
-                                    </td>
-                                {% else %}
-                                    <td>
-                                        <h5>{{ item.product_qty }} items</h5>
-                                    </td>
-                                {% endif %}
+                                <td>
+                                    <h5>{{ item.product_qty }} item{{ item.product_qty|pluralize }}</h5>
+                                </td>
                                 <td>
                                     <h6>₹{{ item.total_price }}</h6>
                                 </td>
                                 <td>
-                                    <a href = "{% url "RemoveCart" item.id %}" onclick="return confirm('Are you sure to remove')" class="btn btn-danger btn-sm">
+                                    <a href="{% url 'RemoveCart' item.id %}" onclick="return confirm('Are you sure to remove')" class="btn btn-danger btn-sm">
                                         <i class="fa fa-trash"></i> Remove
                                     </a>
                                 </td>
@@ -64,9 +61,8 @@
             </div>
         </div>
     </section>
-    
-    
 {% endblock %}
+
 <!-- 1. for example have 3 products in cart: Each product has its own plus button, minus button, and quantity input field.-->
 
 <!-- 2.The forEach loop goes through every plus button, minus button, and quantity input field.-->
