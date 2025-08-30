@@ -1,12 +1,12 @@
+
 {% extends "layouts/main.html" %}
-
-
+{% load static %}
 {% block content %}
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'Home' %}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="{% url 'Category' %}">Categories</li>
+                <li class="breadcrumb-item"><a href="{% url 'Home' %}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="{% url 'Category' %}">Categories</li>
             </ol>
         </nav>
     </div>
@@ -21,7 +21,7 @@
     </figure>
     <section class="bg-light py-4 my-5">
         <div class="container">
-            <div class="row g-4"> <!-- Added 'g-4' for gap between rows and columns -->
+            <div class="row g-4">
                 <div class="col-12">
                     <h3 class="mb-13 text-center hidden">Food Categories</h3>
                     <hr style="border-color:black;">
@@ -30,7 +30,11 @@
                     <div class="col-md-4 col-lg-3">
                         <div class="card my-3 h-85">
                             <a href="{% url 'Category' item.food_names %}">
-                                <img src="{{ item.image }}" class="card-img-top" alt="Categories">
+                                {% if item.image %}
+                                    <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.food_names }}">
+                                {% else %}
+                                    <img src="{% static 'images/default-category.jpg' %}" class="card-img-top" alt="Default Category Image">
+                                {% endif %}
                             </a>
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title text-primary" style="text-shadow: 1px 1px 15px black;">{{ item.food_names }}</h5>
@@ -40,10 +44,7 @@
                         </div>
                     </div>
                 {% endfor %}
-    
             </div>
         </div>
     </section>
-
-    
 {% endblock %}

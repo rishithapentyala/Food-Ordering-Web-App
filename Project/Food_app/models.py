@@ -5,7 +5,7 @@ from django.contrib.auth.models import User # this model is used for creating re
 
 class Category(models.Model):
     food_names = models.CharField(max_length=200,null = False, blank = False)
-    image = models.CharField(max_length=3000,null = True, blank = True)
+    image = models.ImageField(upload_to='category_images/')
     description = models.TextField(max_length=1000,null = False, blank = False)
 
     """Yes, exactly! If you do not use the __str__() method in the 'Category' model, 
@@ -21,7 +21,7 @@ class Items(models.Model):
     item_description = models.TextField(max_length=1000,null = False, blank = False)
     price = models.FloatField(null = False, blank = False)
     offer_price = models.FloatField(null = False, blank = False)
-    item_image = models.CharField(max_length=3000,null = True, blank = True)
+    item_image = models.ImageField(upload_to='item_images/', null=True, blank=True)
     quantity = models.IntegerField(null = False, blank = False)
     underrated_item = models.BooleanField(default=False,help_text="0-show, 1-hidden")
     new_added_item = models.BooleanField(default=False,help_text="0-show, 1-hidden")
